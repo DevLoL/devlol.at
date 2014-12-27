@@ -52,20 +52,20 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'devlol.urls'
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'devlol.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 if ON_PAAS:
     # determine if we are on MySQL or POSTGRESQL
-    if "OPENSHIFT_POSTGRESQL_DB_USERNAME" in os.environ: 
-    
+    if "OPENSHIFT_POSTGRESQL_DB_USERNAME" in os.environ:
+
         DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',  
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME':     os.environ['OPENSHIFT_APP_NAME'],
                 'USER':     os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],
                 'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],
@@ -73,9 +73,9 @@ if ON_PAAS:
                 'PORT':     os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
             }
         }
-        
-    elif "OPENSHIFT_MYSQL_DB_USERNAME" in os.environ: 
-    
+
+    elif "OPENSHIFT_MYSQL_DB_USERNAME" in os.environ:
+
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.mysql',
@@ -87,7 +87,7 @@ if ON_PAAS:
             }
         }
 
-        
+
 else:
     # stock django
     DATABASES = {
