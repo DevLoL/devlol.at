@@ -1,0 +1,143 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>/dev/lol - Linzer Hackspace</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style type="text/css" media="all">
+        body {
+            font-family: "Droid Sans", "Verdana", "Arial";
+        }
+        .main-col {
+            background-color: #EEE;
+        }
+        .side-col {
+            background-color: #EEE;
+        }
+        .sidebar-item {
+            border-top: 1px solid red;
+        }
+        h4 {
+            color: #2277DD;
+            font-weight: bold;
+        }
+        .dairy-date {
+            color: #CCC;
+        }
+        .title {
+            background-image: url("uploads/96/blacktitle.png") right no-repeat;
+        }
+        .navbar-devlol {
+            margin-bottom: 0px;
+            background-color: #2277DD;
+            border-color: #0A67D7;
+        }
+        .navbar-devlol .navbar-nav > li > a {
+            color: #FFF;
+            font-weight: bold;
+        }
+        .navbar-devlol .navbar-nav > li > a:hover{
+            color: #FFF;
+            font-weight: bold;
+            background-color: #488EE2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar >>> -->
+    <nav class="navbar navbar-static-top navbar-default navbar-devlol">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">Wiki</a></li>
+                <li><a href="">Location</a></li>
+                <li><a href="">Projekte</a></li>
+                <li><a href="">Mitglieder</a></li>
+                <li><a href="">Diary</a></li>
+            </ul>                
+        </div>
+    </nav>
+    <!-- <<< Navbar -->
+    <div class="container">
+        <div class="row">
+            <!-- Main Col >>> -->
+            <div class="main-col col-lg-9">
+                <div class="row">
+                    <!-- Header Image -->
+                    <img class="img-responsive" src="http://files.doebi.at/temp/RDawNOSE" alt="" />
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            {% for item in items %}
+                            <div class="col-lg-12">
+                                <h4>{{item.title}}<small> - <i class="diary-date">{{item.date}}, {{item.time}}</i></small></h4>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                    <p>{{item.content}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {% for image in item.images %}
+                                    <div class="col-lg-2 col-md-3 col-xs-4">
+                                        <a class="thumbnail" href="#">
+                                            <img class="img-responsive" src="{{image.data.url}}" alt="">
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <<< Main Col -->
+            <!-- Side Col >>> -->
+            <div class="side-col col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Upcoming Events</h4>                    
+                        <ul>
+                            {% for event in events %}
+                            <li>
+                                <b>{{event.title}}</b><br>
+                                <small><i>{{event.date}}, {{event.time}}</i></small>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Mailingliste</h4>
+                        <p>Auf der Mailingliste werden alle relevanten Information und Events veröffentlicht, dies ist somit der beste Weg immer auf dem laufenden zu bleiben.</p>
+                        <input type="text" name="mail_entry" id="" value="" />
+                        <button type="submit">Eintragen</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Mitglied werden</h4>
+                        <a href="">Wie werde ich Mitglied?</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Social Media</h4>                    
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="https://www.facebook.com/DeveloperLabofLinz">
+                                    <img src="" alt="" />
+                                </a>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <<< Side Col -->
+        </div>
+        <div class="footer">
+            <!-- to be created -->            
+        </div>
+    </div>
+</body>
+</html>
