@@ -59,81 +59,29 @@
             <!-- Main Col >>> -->
             <div class="main-col col-lg-9">
                 <div class="row">
-                    <h3>Location</h3>
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-                            {% for item in items %}
-                            <div class="col-lg-12">
-                                <h4>{{item.title}}<small> - <i class="diary-date">{{item.date}}, {{item.time}}</i></small></h4>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                    <p>{{item.content}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    {% for image in item.images %}
-                                    <div class="col-lg-2 col-md-3 col-xs-4">
-                                        <a class="thumbnail" href="#">
-                                            <img class="img-responsive" src="{{image.data.url}}" alt="">
-                                        </a>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            {% endfor %}
+                            <h3 class="">Location</h3>
+                        </div>
+                        <div class="row">
+                            <strong>Wo finde ich /dev/lol ?</strong>
+                            <br />
+                            <code>
+                                Hofgasse 19 - 4020 Linz
+                            </code>
+                        </div>
+                        <div class="row">
+                            <a href="http://osm.org/go/0JhNhWHJt--?m=">http://osm.org/go/0JhNhWHJt--?m=</a>
+                        </div>
+                        <div class="row">
+                            <img src="https://devlol.org/wiki/DevLoL/Location?action=AttachFile&do=get&target=H19_Panorama_hipster.png" class="img-responsive" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
             <!-- <<< Main Col -->
             <!-- Side Col >>> -->
-            <div class="side-col col-lg-3">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Upcoming Events</h4>                    
-                        <ul>
-                            {% for event in events %}
-                            <li>
-                                <b>{{event.title}}</b><br>
-                                <small><i>{{event.date}}, {{event.time}}</i></small>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Mailingliste</h4>
-                        <p>Auf der Mailingliste werden alle relevanten Informationen und Events veröffentlicht, dies ist somit der beste Weg immer auf dem Laufenden zu bleiben.</p>
-                        <input type="text" name="mail_entry" id="" value="" />
-                        <button type="submit">Eintragen</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Mitglied werden</h4>
-                        <a href="">Wie werde ich Mitglied?</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Social Media</h4>                    
-                        <div class="row" style="text-align: center; margin: 10px">
-                            <div class="col-lg-4">
-                                <i class="fa fa-twitter sm-icon"></i>
-                            </div>                            
-                            <div class="col-lg-4">
-                                <i class="fa fa-facebook sm-icon"></i>
-                            </div>                            
-                            <div class="col-lg-4">
-                                <i class="fa fa-github sm-icon"></i>
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% include "sidebar.html" %}
             <!-- <<< Side Col -->
         </div>
         <div class="footer">
