@@ -2,12 +2,14 @@
 <div class="side-col col-lg-3">
     <div class="row">
         <div class="col-lg-12">
-            <h4>Upcoming Events</h4>                    
+            <h4>Nächste Termine</h4>                    
             <ul>
                 {% for event in events %}
-                <li>
-                    <b>{{event.title}}</b><br>
-                    <small><i>{{event.date}}, {{event.time}}</i></small>
+                <li class="upcoming-item">
+                    <p>
+                        <b>{{event.title}}</b><br />
+                        <small class="pull-right"><i>{{event.date}}, {{event.time}}</i></small>
+                    </p>
                 </li>
                 {% endfor %}
             </ul>
@@ -29,16 +31,22 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h4>Social Media</h4>                    
+            <h4>Finde uns bei ...</h4>                    
             <div class="row" style="text-align: center; margin: 10px">
                 <div class="col-lg-4">
+                    <a href="https://twitter.com/hackerspacelinz">
                     <i class="fa fa-twitter sm-icon"></i>
+                    </a>
                 </div>                            
                 <div class="col-lg-4">
+                    <a href="https://www.facebook.com/DeveloperLabofLinz">
                     <i class="fa fa-facebook sm-icon"></i>
+                    </a>
                 </div>                            
                 <div class="col-lg-4">
+                    <a href="https://github.com/devlol">
                     <i class="fa fa-github sm-icon"></i>
+                    </a>
                 </div>                            
             </div>
         </div>

@@ -32,6 +32,9 @@ else:
     ALLOWED_HOSTS = []
 
 
+DATE_FORMAT = '%d %B, %Y'
+
+
 # Application definition
 
 INSTALLED_APPS = (
