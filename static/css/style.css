@@ -9,10 +9,14 @@ body {
     font-family: "Droid Sans", "Verdana", "Arial";
 }
 .main-col {
-    background-color: #EEE;
+    background-color: #FFF;
+    height: 100%;
+    box-shadow: 0 1px 15px rgba(0,0,0,.5);
 }
 .side-col {
     background-color: #EEE;
+    height: 100%;
+    box-shadow: 0 1px 15px rgba(0,0,0,.25);
 }
 .sidebar-item {
     border-top: 1px solid red;
@@ -31,6 +35,7 @@ h4 {
     margin-bottom: 0px;
     background-color: #2277DD;
     border-color: #0A67D7;
+    box-shadow: 0 1px 15px rgba(0,0,0,.75);
 }
 .navbar-devlol .navbar-nav > li > a {
     color: #FFF;

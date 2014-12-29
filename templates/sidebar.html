@@ -1,47 +1,47 @@
-            <!-- Side Col >>> -->
-            <div class="side-col col-lg-3">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Upcoming Events</h4>                    
-                        <ul>
-                            {% for event in events %}
-                            <li>
-                                <b>{{event.title}}</b><br>
-                                <small><i>{{event.date}}, {{event.time}}</i></small>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Mailingliste</h4>
-                        <p>Auf der Mailingliste werden alle relevanten Informationen und Events veröffentlicht, dies ist somit der beste Weg immer auf dem Laufenden zu bleiben.</p>
-                        <input type="text" name="mail_entry" id="" value="" />
-                        <button type="submit">Eintragen</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Mitglied werden</h4>
-                        <a href="/join/">Wie werde ich Mitglied?</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>Social Media</h4>                    
-                        <div class="row" style="text-align: center; margin: 10px">
-                            <div class="col-lg-4">
-                                <i class="fa fa-twitter sm-icon"></i>
-                            </div>                            
-                            <div class="col-lg-4">
-                                <i class="fa fa-facebook sm-icon"></i>
-                            </div>                            
-                            <div class="col-lg-4">
-                                <i class="fa fa-github sm-icon"></i>
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
+<!-- Side Col >>> -->
+<div class="side-col col-lg-3">
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>Upcoming Events</h4>                    
+            <ul>
+                {% for event in events %}
+                <li>
+                    <b>{{event.title}}</b><br>
+                    <small><i>{{event.date}}, {{event.time}}</i></small>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>Mailingliste</h4>
+            <p>Auf der Mailingliste werden alle relevanten Informationen und Events veröffentlicht, dies ist somit der beste Weg immer auf dem Laufenden zu bleiben.</p>
+            <input type="text" name="mail_entry" id="" value="" />
+            <button type="submit">Eintragen</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>Mitglied werden</h4>
+            <a href="/join/">Wie werde ich Mitglied?</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>Social Media</h4>                    
+            <div class="row" style="text-align: center; margin: 10px">
+                <div class="col-lg-4">
+                    <i class="fa fa-twitter sm-icon"></i>
+                </div>                            
+                <div class="col-lg-4">
+                    <i class="fa fa-facebook sm-icon"></i>
+                </div>                            
+                <div class="col-lg-4">
+                    <i class="fa fa-github sm-icon"></i>
+                </div>                            
             </div>
-            <!-- <<< Side Col -->
+        </div>
+    </div>
+</div>
+<!-- <<< Side Col -->
