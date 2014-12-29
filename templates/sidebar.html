@@ -3,16 +3,14 @@
     <div class="row">
         <div class="col-lg-12">
             <h4>Nächste Termine</h4>                    
-            <ul>
+            <div class="row">
                 {% for event in events %}
-                <li class="upcoming-item">
-                    <p>
-                        <b>{{event.title}}</b><br />
-                        <small class="pull-right"><i>{{event.date}}, {{event.time}}</i></small>
-                    </p>
-                </li>
+                <div style="margin-top: 10px" class="col-lg-12">
+                    <b style="font-size: 12pt">{{event.title}}</b>
+                    <small class="pull-right"><i>{{event.date}}, {{event.time}}</i></small>
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
     <div class="row">

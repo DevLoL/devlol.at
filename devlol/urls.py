@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     url(r'^projects/$',                                                             'devlol.views.projects'),
     url(r'^members/$',                                                              'devlol.views.members'),
     url(r'^join/$',                                                                 'devlol.views.join'),
+    url(r'^monitoring/$',                                                           'devlol.views.monitoring'),
+    url(r'^equipment/$',                                                            'devlol.views.equipment'),
 
     # Diary Stuff
     url(r'^diary/$',                                                                'devlol.views.index'),

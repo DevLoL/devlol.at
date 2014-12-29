@@ -1,11 +1,5 @@
 <html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>/dev/lol - Linzer Hackspace</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/static/css/style.css" rel="stylesheet">
-</head>
+{% include "header.html" %}
 <body>
     <!-- Navbar >>> -->
     {% include "menu.html" %}
@@ -16,7 +10,7 @@
             <div class="main-col col-lg-9">
                 <div class="row">
                     <!-- Header Image -->
-                    <img class="img-responsive" src="http://placekitten.com/1000/300" alt="" />
+                    <img class="img-responsive" src="/static/img/header/placeholder.png" alt="" />
                     {% include "status.html" %}
                 </div>
                 <div class="row">

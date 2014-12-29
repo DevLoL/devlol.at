@@ -26,3 +26,9 @@ def members(request):
 
 def join(request):
     return render_to_response("join.html", context)
+
+def monitoring(request):
+    return render_to_response("monitoring.html", context)
+
+def equipment(request):
+    return render_to_response("equipment.html", context)

@@ -5,6 +5,15 @@
     color: darkgrey;
     cursor: pointer;
 }
+.status-link:hover {
+    text-decoration: none;
+}
+.status-link:active {
+    text-decoration: none;
+}
+.status-link:visited {
+    text-decoration: none;
+}
 .status-label {
     background-color: #DDD;
     padding: 7px;
@@ -17,6 +26,10 @@
     bottom: 15px;
     left: 0px;
     text-shadow: 1px 2px 2px rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+.status-label:hover {
+    background-color: #CCC;
 }
 .upcoming-item {
     list-style-type: none;
