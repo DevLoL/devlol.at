@@ -18,3 +18,6 @@ def projects(request):
 
 def members(request):
     return render_to_response("members.html")
+
+def join(request):
+    return render_to_response("join.html")
