@@ -1,9 +1,42 @@
 <html>
 {% include "header.html" %}
+<style>
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    
+    .x.axis path {
+      display: none;
+    }
+    
+    .area.above {
+      fill: rgb(252,141,89);
+    }
+    
+    .area.below {
+      fill: rgb(145,207,96);
+    }
+    
+    .Byteline {
+      fill: none;
+      stroke: #000;
+      stroke-width: 1.5px;
+    }
+    
+    .Leaseline {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+</style>
 <body>
     <!-- Navbar >>> -->
     {% include "menu.html" %}
     <!-- <<< Navbar -->
+    
     <div class="container">
         <div class="row">
             <!-- Main Col >>> -->
@@ -14,10 +47,8 @@
                     {% include "status.html" %}
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h2>Monitoring</h2>
+                    <div id="content" class="col-lg-12">
                     </div>
-                    <div class="col-lg-12">balh foo devmon und so</div>
                 </div>
             </div>
             <!-- <<< Main Col -->
@@ -26,6 +57,8 @@
             <!-- <<< Side Col -->
         </div>
         <div class="footer">
+            <script src="/static/lib/d3.v3.js"></script>
+            <script src="/static/js/devmon.js"></script>
             <!-- to be created -->            
         </div>
     </div>
