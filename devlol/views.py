@@ -38,3 +38,6 @@ def monitoring(request):
 
 def equipment(request):
     return render_to_response("equipment.html", context)
+
+def mail(request):
+    return render_to_response("mail.html", context)

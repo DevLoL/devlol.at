@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^join/$',                                                                 'devlol.views.join'),
     url(r'^monitoring/$',                                                           'devlol.views.monitoring'),
     url(r'^equipment/$',                                                            'devlol.views.equipment'),
+    url(r'^mail/$',                                                                 'devlol.views.mail'),
 
     # Diary Stuff
     url(r'^diary/$',                                                                'devlol.views.index'),
