@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from diary.models import DiaryItem, ImageItem
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
@@ -56,5 +56,5 @@ def mail(request):
             send_mail('Subscription request', '', mail, ['devlol-join@lists.servus.at'], fail_silently=False)
         except:
             print "an error occured"
-        return HttpResponseRedirect("/mail/")
+        return redirect('/mail/')
     return render_to_response("mail.html", context)
