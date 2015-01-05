@@ -28,6 +28,10 @@
     text-shadow: 1px 2px 2px rgba(255, 255, 255, 0.6);
     text-decoration: none;
 }
+.img-header {
+    height: 50px;
+    padding: 5px;
+}
 .status-label:hover {
     background-color: #CCC;
 }
