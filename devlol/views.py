@@ -56,4 +56,5 @@ def mail(request):
             send_mail('Subscription request', '', mail, ['devlol-join@lists.servus.at'], fail_silently=False)
         except:
             print "an error occured"
+        return HttpResponseRedirect("/mail/")
     return render_to_response("mail.html", context)
