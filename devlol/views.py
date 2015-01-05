@@ -53,7 +53,7 @@ def mail(request):
     if request.POST:
         mail = request.POST['mail_entry']
         try:
-            send_mail('Subscription request', '', mail, ['christoph@doeberl.at'], fail_silently=False)
+            send_mail('Subscription request', '', mail, ['devlol-join@lists.servus.at'], fail_silently=False)
         except:
             print "an error occured"
     return render_to_response("mail.html", context)
