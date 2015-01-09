@@ -3,6 +3,7 @@ from diary.models import DiaryItem, ImageItem
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
 from markdown import markdown
+from urllib import urlopen
 import datetime
 import status
 
@@ -30,6 +31,8 @@ def location(request):
 
 def projects(request):
     context.update(csrf(request))
+    content = urlopen("https://devlol.org/wiki/projects?action=content")
+    context['content'] = content.read()
     return render_to_response("projects.html", context)
 
 def members(request):
