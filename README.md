@@ -46,3 +46,5 @@ A Link for displaying all events on a certain date.
 * Integration with devbot
 * E-Mail Reminder for events
 * ical export
+* Publish to Facebook
+* Anncounce on Twitter
