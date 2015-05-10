@@ -30,11 +30,13 @@
 }
 .header-img {
     height: 50px;
-    padding: 5px;
+    padding: 10px;
 }
+/*
 .status-label:hover {
     background-color: #CCC;
 }
+*/
 .upcoming-item {
     list-style-type: none;
     border-top: 1px solid;

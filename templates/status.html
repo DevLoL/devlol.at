@@ -1,9 +1,9 @@
 {% if state != None %}
-    <a class="status-link" href="/monitoring/">
+    {#<a class="status-link" href="/monitoring/">#}
     {% if state %}
     <span style="color: green" class="status-label"><i class="fa fa-unlock"></i> Open</span>
     {% else %}
     <span style="color: #777" class="status-label"><i class="fa fa-lock"></i> Closed</span>
     {% endif %}
-    </a>
+    {#</a>#}
 {% endif %}
