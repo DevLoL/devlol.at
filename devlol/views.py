@@ -7,9 +7,16 @@ from urllib import urlopen
 import datetime
 import status
 
+def get_events():
+    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time');
+    for e in events:
+        e.datestring = e.date.strftime("%d.%m.%Y")
+        e.timestring = e.time.strftime("%H:%M Uhr")
+    return events
+
 context = {}
 context['state'] = status.get()
-context['events'] = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time');
+context['events'] = get_events()
 
 def index(request):
     context.update(csrf(request))

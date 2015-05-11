@@ -9,13 +9,15 @@
                     {% for event in events %}
                     <div style="margin-top: 10px" class="col-lg-12">
                         <b style="font-size: 12pt">{{event.title}}</b>
-                        <small class="pull-right"><i>{{event.date}}, {{event.time}}</i></small>
+                        <small class="pull-right"><i>{{event.datestring}}, {{event.timestring}}</i></small>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+    {% else %}
+    <h1>oida</h1>
     {% endif %}
     <div class="row">
         <div class="col-lg-12">
