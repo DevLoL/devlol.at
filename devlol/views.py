@@ -14,11 +14,10 @@ def get_events():
         e.timestring = e.time.strftime("%H:%M Uhr")
     return events
 
-context = {}
-context['state'] = status.get()
-context['events'] = get_events()
-
 def index(request):
+    context = {}
+    context['state'] = status.get()
+    context['events'] = get_events()
     context.update(csrf(request))
     diary_items = DiaryItem.objects.filter(date__lte=datetime.date.today()).order_by('-date', '-time');
     for di in diary_items:
@@ -35,6 +34,9 @@ def index(request):
     return render_to_response("index.html", context)
 
 def location(request):
+    context = {}
+    context['state'] = status.get()
+    context['events'] = get_events()
     context.update(csrf(request))
     return render_to_response("location.html", context)
 
