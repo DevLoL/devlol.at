@@ -16,6 +16,8 @@ def index(request):
     diary_items = DiaryItem.objects.filter(date__lte=datetime.date.today()).order_by('-date', '-time');
     for di in diary_items:
         di.html = markdown(di.content)
+        di.datestring = di.date.strftime("%d.%m.%Y")
+        di.timestring = di.time.strftime("%H:%M Uhr")
     context['items'] = diary_items
     """
     for di in diary_items:
