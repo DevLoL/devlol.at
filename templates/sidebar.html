@@ -8,8 +8,9 @@
                 <div class="col-lg-12">
                     {% for event in events %}
                     <div style="margin-top: 10px" class="col-lg-12">
-                        <b style="font-size: 12pt">{{event.title}}</b>
-                        <small class="pull-right"><i>{{event.datestring}}, {{event.timestring}}</i></small>
+                        <b>{{event.datestring}}, {{event.timestring}}</b>
+                        <p class="lead" style="font-size: 12pt; margin-bottom: 4px; margin-top: 4px">{{event.title}}</p>
+                        <p>{{event.subtitle|safe}}</p>
                     </div>
                     {% endfor %}
                 </div>

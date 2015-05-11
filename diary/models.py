@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class DiaryItem(models.Model):
     title = models.CharField(max_length=64)
+    subtitle = models.CharField(max_length=64)
     date = models.DateField()
     time = models.TimeField()
     author = models.ForeignKey(User)
