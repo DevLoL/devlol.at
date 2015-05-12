@@ -8,6 +8,7 @@ import datetime
 import status
 
 def get_events():
+    # limit to 5
     events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time');
     for e in events:
         e.datestring = e.date.strftime("%d.%m.%Y")
@@ -19,6 +20,7 @@ def index(request):
     context['state'] = status.get()
     context['events'] = get_events()
     context.update(csrf(request))
+    # limit to 10 - 15
     diary_items = DiaryItem.objects.filter(date__lte=datetime.date.today()).order_by('-date', '-time');
     for di in diary_items:
         di.html = markdown(di.content)
