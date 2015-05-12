@@ -92,3 +92,27 @@ h4 {
     padding-bottom: 15px;
     padding-top: 15px;
 }
+.event-item {
+    padding: 15px;
+}
+.event-item-header {
+    color: #888;
+    font-weight: bold;
+}
+.event-item-footer {
+    color: #888;
+    font-size: 8pt;
+}
+.event-title {
+    line-height: 1.4;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 12pt;
+}
+.event-subtitle {
+    font-size: 10pt;
+}
+.event-link {
+}
+.event-location {
+}

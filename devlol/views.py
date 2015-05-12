@@ -12,7 +12,7 @@ def get_events():
     events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time');
     for e in events:
         e.datestring = e.date.strftime("%d.%m.%Y")
-        e.timestring = e.time.strftime("%H:%M Uhr")
+        e.timestring = e.time.strftime("%H:%M")
     return events
 
 def index(request):

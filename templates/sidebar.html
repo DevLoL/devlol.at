@@ -5,15 +5,40 @@
         <div class="col-lg-12">
             <h4>Nächste Termine</h4>                    
             <div class="row">
-                <div class="col-lg-12">
-                    {% for event in events %}
-                    <div style="margin-top: 10px" class="col-lg-12">
-                        <b>{{event.datestring}}, {{event.timestring}}</b>
-                        <p class="lead" style="font-size: 12pt; margin-bottom: 4px; margin-top: 4px">{{event.title}}</p>
-                        <p>{{event.subtitle|safe}}</p>
+                {% for event in events %}
+                <div class="col-lg-12 event-item">
+                    <div class="row event-item-header">
+                        <div class="col-lg-12">
+                            <div class="pull-left">
+                                <i class="fa fa-calendar"></i> {{event.datestring}}
+                            </div>
+                            <div class="pull-right">
+                                <i class="fa fa-clock-o"></i> {{event.timestring}}
+                            </div>
+                        </div>
                     </div>
-                    {% endfor %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="event-title">{{event.title}}</p>
+                            {% if event.subtitle %}
+                                <p class="event-subtitle">{{event.subtitle}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row event-item-footer">
+                        <div class="col-lg-12">
+                            {% if event.link %}
+                            <div class="pull-left">
+                                <i class="fa fa-external-link"></i> <a href="{{event.link}}" target="_blank">{{event.link}}</a>
+                            </div>
+                            {% endif %}
+                            <div class="pull-right">
+                                <i class="fa fa-map-marker"></i> {{event.location}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
