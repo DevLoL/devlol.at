@@ -17,7 +17,7 @@ def get_events():
 
 def index(request):
     context = {}
-    context['state'] = status.get()
+    context['state'] = status.isOpen()
     context['events'] = get_events()
     context.update(csrf(request))
     # limit to 10 - 15
@@ -37,7 +37,7 @@ def index(request):
 
 def location(request):
     context = {}
-    context['state'] = status.get()
+    context['state'] = status.isOpen()
     context['events'] = get_events()
     context.update(csrf(request))
     return render_to_response("location.html", context)
