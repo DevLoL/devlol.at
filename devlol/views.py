@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, redirect
 from diary.models import DiaryItem, ImageItem
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
+from django.http import JsonResponse
 from markdown import markdown
 from urllib import urlopen
 import datetime
@@ -73,3 +74,7 @@ def mail(request):
         except:
             print "an error occured"
     return redirect('/')
+
+def events(request):
+    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time').values('title', 'date', 'time');
+    return JsonResponse({'events': list(events)})
