@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 urlpatterns = patterns('',
-    url(r'^$',              'devlol.views.index'),
+    url(r'^$', 'devlol.views.index'),
 
     # Static Stuff
     url(r'^location/$', 'devlol.views.location'),

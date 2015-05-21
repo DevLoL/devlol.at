@@ -76,5 +76,5 @@ def mail(request):
     return redirect('/')
 
 def events(request):
-    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time').values('title', 'date', 'time');
+    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time').values('title', 'date', 'time', 'subtitle');
     return JsonResponse({'events': list(events)})
