@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     # API Stuff
     url(r'^api/events$', 'devlol.views.events'),
+    url(r'^api/ical$', 'devlol.views.ical'),
 
     # Admin Stuff
     url(r'^admin/', include(admin.site.urls)),

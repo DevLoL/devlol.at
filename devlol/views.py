@@ -2,18 +2,20 @@ from django.shortcuts import render_to_response, redirect
 from diary.models import DiaryItem, ImageItem
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from markdown import markdown
 from urllib import urlopen
+from icalendar import Calendar, Event, vText
 import datetime
 import status
+import pytz
 
 def get_events():
     # limit to 5
-    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time');
+    events = DiaryItem.objects.filter(start_date__gt=datetime.date.today()).order_by('start_date', 'start_time');
     for e in events:
-        e.datestring = e.date.strftime("%d.%m.%Y")
-        e.timestring = e.time.strftime("%H:%M")
+        e.datestring = e.start_date.strftime("%d.%m.%Y")
+        e.timestring = e.start_time.strftime("%H:%M")
     return events
 
 def index(request):
@@ -22,11 +24,11 @@ def index(request):
     context['events'] = get_events()
     context.update(csrf(request))
     # limit to 10 - 15
-    diary_items = DiaryItem.objects.filter(date__lte=datetime.date.today()).order_by('-date', '-time');
+    diary_items = DiaryItem.objects.filter(start_date__lte=datetime.date.today()).order_by('-start_date', '-start_time');
     for di in diary_items:
         di.html = markdown(di.content)
-        di.datestring = di.date.strftime("%d.%m.%Y")
-        di.timestring = di.time.strftime("%H:%M Uhr")
+        di.datestring = di.start_date.strftime("%d.%m.%Y")
+        di.timestring = di.start_time.strftime("%H:%M Uhr")
     context['items'] = diary_items
     """
     for di in diary_items:
@@ -76,5 +78,25 @@ def mail(request):
     return redirect('/')
 
 def events(request):
-    events = DiaryItem.objects.filter(date__gt=datetime.date.today()).order_by('date', 'time').values('title', 'date', 'time', 'subtitle');
+    events = DiaryItem.objects.filter(start_date__gt=datetime.date.today()).order_by('start_date', 'start_time').values('title', 'start_date', 'start_time', 'subtitle');
     return JsonResponse({'events': list(events)})
+
+def ical(request):
+    cal = Calendar()
+    cal.add('prodid', '-// /dev/lol - Event Calendar - devlol.at //')
+    cal.add('version', '2.0')
+    events = get_events()
+    for e in events:
+        event = Event()
+        if e.subtitle:
+            event.add('summary', e.title + " - " + e.subtitle)
+        else:
+            event.add('summary', e.title)
+        event.add('dtstart', datetime.datetime.combine(e.start_date, e.start_time))
+        event.add('dtend', datetime.datetime.combine(e.end_date, e.end_time))
+        event['location'] = vText(e.location)
+        event['description'] = vText(e.content)
+        cal.add_component(event)
+    response = HttpResponse(cal.to_ical(), 'text/calendar')
+    response['Content-Disposition'] = 'attachment; filename=devlol.ics'
+    return response
