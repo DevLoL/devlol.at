@@ -14,7 +14,9 @@ urlpatterns = patterns('',
 
     # API Stuff
     url(r'^api/events$', 'devlol.views.events'),
-    url(r'^api/ical$', 'devlol.views.ical'),
+
+    # iCal Export
+    url(r'^export/ical/events.ics$', 'devlol.views.ical'),
 
     # Admin Stuff
     url(r'^admin/', include(admin.site.urls)),
