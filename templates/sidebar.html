@@ -3,7 +3,9 @@
     {% if events %}
     <div class="row">
         <div class="col-lg-12">
-            <h4>Nächste Termine</h4>                    
+            <h4>Nächste Termine
+                <small><a href="http://devlol.at/export/ical/events.ics" target="_blank">iCal-Feed</a></small>
+            </h4>                    
             <div class="row">
                 {% for event in events %}
                 <div class="col-lg-12 event-item">
@@ -42,8 +44,6 @@
             </div>
         </div>
     </div>
-    {% else %}
-    <h1>oida</h1>
     {% endif %}
     <div class="row">
         <div class="col-lg-12">
