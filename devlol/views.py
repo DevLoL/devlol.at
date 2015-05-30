@@ -10,6 +10,11 @@ import datetime
 import status
 import pytz
 
+#### Disclaimer ####
+# honestly - this file is a mess
+# my idea is to write as messy as possible to encourage some other devs to help improving this ;)
+# this shouldn't be a one-man-show
+
 def get_events():
     # limit to 5
     events = DiaryItem.objects.filter(start_date__gt=datetime.date.today()).order_by('start_date', 'start_time');
@@ -85,7 +90,8 @@ def ical(request):
     cal = Calendar()
     cal.add('prodid', '-// /dev/lol - Event Calendar - devlol.at //')
     cal.add('version', '2.0')
-    events = get_events()
+    begin = datetime.date.today() - datetime.timedelta(days=32)
+    events = DiaryItem.objects.filter(start_date__gt=begin).order_by('start_date', 'start_time');
     for e in events:
         event = Event()
         if e.subtitle:
@@ -98,5 +104,5 @@ def ical(request):
         event['description'] = vText(e.content)
         cal.add_component(event)
     response = HttpResponse(cal.to_ical(), 'text/calendar')
-    response['Content-Disposition'] = 'attachment; filename=devlol.ics'
+    response['Content-Disposition'] = 'attachment; filename=events.ics'
     return response

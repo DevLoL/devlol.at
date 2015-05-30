@@ -32,6 +32,18 @@
                                             {{item.html|safe}}
                                         </div>
                                     </div>
+                                    <div class="row event-item-footer">
+                                        <div class="col-lg-12">
+                                            {% if item.link %}
+                                            <div class="pull-left">
+                                                <i class="fa fa-external-link"></i> <a href="{{item.link}}" target="_blank">{{item.link}}</a>
+                                            </div>
+                                            {% endif %}
+                                            <div class="pull-right">
+                                                <i class="fa fa-map-marker"></i> {{item.location}}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         {% for image in item.images %}
                                         <div class="col-lg-2 col-md-3 col-xs-4">
