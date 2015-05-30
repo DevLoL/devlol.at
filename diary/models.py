@@ -13,7 +13,7 @@ class DiaryItem(models.Model):
     location = models.ForeignKey('EventLocation')
     content = models.TextField()
     def __unicode__(self):
-        return (self.title)
+        return self.title + " - " + self.subtitle if self.subtitle else self.title
 
 class EventLocation(models.Model):
     name = models.CharField(max_length=64)
