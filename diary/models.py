@@ -24,5 +24,8 @@ class EventLocation(models.Model):
         return self.name
 
 class ImageItem(models.Model):
-    data = models.ImageField(upload_to="images")
+    # data = models.ImageField(upload_to="images")
+    url = models.URLField()
     diary_item = models.ForeignKey(DiaryItem)
+    def __unicode__(self):
+        return str(self.diary_item) + ": " + self.url.split("/")[-1]

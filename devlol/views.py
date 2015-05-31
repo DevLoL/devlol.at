@@ -34,13 +34,9 @@ def index(request):
         di.html = markdown(di.content)
         di.datestring = di.start_date.strftime("%d.%m.%Y")
         di.timestring = di.start_time.strftime("%H:%M Uhr")
-    context['items'] = diary_items
-    """
-    for di in diary_items:
         image_items = ImageItem.objects.filter(diary_item=di)
         di.images = image_items
     context['items'] = diary_items
-    """
     return render_to_response("index.html", context)
 
 def location(request):

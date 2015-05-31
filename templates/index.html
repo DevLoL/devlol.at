@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <html>
     {% include "header.html" %}
+    <script src="/static/lib/lightbox/js/jquery-1.11.0.min.js"></script>
+    <script src="/static/lib/lightbox/js/lightbox.min.js"></script>
+    <link href="/static/lib/lightbox/css/lightbox.css" rel="stylesheet" />
     <body>
         <!-- Navbar >>> -->
         {% include "menu.html" %}
@@ -46,9 +49,9 @@
                                     </div>
                                     <div class="row">
                                         {% for image in item.images %}
-                                        <div class="col-lg-2 col-md-3 col-xs-4">
-                                            <a class="thumbnail" href="#">
-                                                <img class="img-responsive" src="{{image.data.url}}" alt="">
+                                        <div class="col-lg-3 col-md-6 col-xs-12">
+                                            <a class="thumbnail" data-lightbox="event-{{item.id}}" href="{{image.url}}">
+                                                <img class="img-responsive" src="{{image.url}}" alt="">
                                             </a>
                                         </div>
                                         {% endfor %}
