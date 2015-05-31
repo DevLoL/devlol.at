@@ -103,6 +103,9 @@ h4 {
     color: #888;
     font-size: 8pt;
 }
+.event-item-gallery {
+    margin-top: 15px;
+}
 .event-title {
     line-height: 1.4;
     margin-top: 2px;
