@@ -73,7 +73,6 @@ def equipment(request):
     return render_to_response("equipment.html", context)
 
 def mail(request):
-    context.update(csrf(request))
     if request.POST:
         mail = request.POST['mail_entry']
         try:
