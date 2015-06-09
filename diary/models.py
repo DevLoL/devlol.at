@@ -1,3 +1,4 @@
+import re
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -14,6 +15,9 @@ class DiaryItem(models.Model):
     content = models.TextField()
     def __unicode__(self):
         return (self.title)
+    def shortened_link(self):
+        if self.link:
+            return re.sub(r"https?://", '', self.link, flags=re.IGNORECASE)
 
 class EventLocation(models.Model):
     name = models.CharField(max_length=64)
