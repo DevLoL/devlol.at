@@ -94,7 +94,8 @@ def ical(request):
         else:
             event.add('summary', e.title)
         event.add('dtstart', datetime.datetime.combine(e.start_date, e.start_time))
-        event.add('dtend', datetime.datetime.combine(e.end_date, e.end_time))
+        if e.end_date:
+            event.add('dtend', datetime.datetime.combine(e.end_date, e.end_time))
         event['location'] = vText(e.location)
         event['description'] = vText(e.content)
         cal.add_component(event)
