@@ -41,10 +41,13 @@ With Links to each days subpage.
 #### date
 A Link for displaying all events on a certain date.
 
+### ical export
+
+experimantal ical export
+
 ### Optional additions
 * Possibility to suggest events in a form, which will be reviewed by an admin
 * Integration with devbot
 * E-Mail Reminder for events
-* ical export
 * Publish to Facebook
 * Anncounce on Twitter
