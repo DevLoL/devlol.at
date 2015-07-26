@@ -6,8 +6,11 @@ def query_api(mode='viewstatus'):
     return urllib.urlopen(url + mode).read()
 
 def isLocked():
-    data = json.loads(query_api(mode=''))
-    return bool(data['sensors']['door_locked'][0]['value'])
+    try:
+        data = json.loads(query_api(mode='')):
+        return bool(data['sensors']['door_locked'][0]['value'])
+    except:
+        return None
 
 def isOpen():
     return not isLocked()
