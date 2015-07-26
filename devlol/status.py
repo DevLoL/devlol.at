@@ -7,7 +7,7 @@ def query_api(mode='viewstatus'):
 
 def isLocked():
     try:
-        data = json.loads(query_api(mode='')):
+        data = json.loads(query_api(mode=''))
         return bool(data['sensors']['door_locked'][0]['value'])
     except:
         return None
