@@ -17,7 +17,7 @@ import pytz
 
 def get_events():
     # limit to 5
-    events = DiaryItem.objects.filter(start_date__gt=datetime.date.today()).order_by('start_date', 'start_time');
+    events = DiaryItem.objects.filter(start_date__gt=datetime.date.today()).order_by('start_date', 'start_time')[:5];
     for e in events:
         e.datestring = e.start_date.strftime("%d.%m.%Y")
         e.timestring = e.start_time.strftime("%H:%M")
@@ -29,7 +29,7 @@ def index(request):
     context['events'] = get_events()
     context.update(csrf(request))
     # limit to 10 - 15
-    diary_items = DiaryItem.objects.filter(start_date__lte=datetime.date.today()).order_by('-start_date', '-start_time');
+    diary_items = DiaryItem.objects.filter(start_date__lte=datetime.date.today()).order_by('-start_date', '-start_time')[:15];
     for di in diary_items:
         di.html = markdown(di.content)
         di.datestring = di.start_date.strftime("%d.%m.%Y")
