@@ -10,7 +10,7 @@ urlpatterns = patterns('',
 
     # Diary Stuff
     url(r'^diary/$',                            'devlol.views.index'),
-    url(r'^diary/event/(?P<event_id>[0-9]+)/$', 'diary.views.item'),
+    url(r'^diary/event/(?P<item_id>[0-9]+)/$', 'diary.views.item'),
 
     # API Stuff
     url(r'^api/events$', 'devlol.views.events'),
